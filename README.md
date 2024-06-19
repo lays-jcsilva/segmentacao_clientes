@@ -18,20 +18,15 @@ O objetivo deste projeto é realizar uma análise abrangente de segmentação de
 Este projeto reveste-se de uma importância crucial para a loja o Mercado, especializada em produtos alimentícios importados, que enfrenta desafios constantes na compreensão das preferências mutáveis de seus clientes. A necessidade de fidelizar esses clientes é premente, e para superar esse desafio, a empresa busca identificar onde investir seus esforços. Portanto, esta análise é de grande relevância para orientar as estratégias de negócio e impulsionar o sucesso da empresa no mercado competitivo de alimentos importados.
 
 
-
 <details>
 <summary><b>Equipe</b></summary>
-
-
 
 Trabalhei de forma independente neste projeto, assumindo todas as responsabilidades, desde o planejamento até a execução e análise dos resultados. Apesar de ser um projeto individual, busquei feedback de colegas e auxílio quando necessário, priorizando a entrega de qualidade. Mesmo atuando sozinha, reconheço a importância da aprendizagem colaborativa e valorizo as contribuições de outras colegas ao buscar insights e perspectivas externas e diferentes. A capacidade de gerenciar todas as etapas do projeto de forma independente me proporcionou um valioso aprendizado e desenvolvimento de habilidades em diversas áreas, desde análise de dados até comunicação eficaz, ao mesmo tempo em que pude perceber a importância da colaboração para enriquecer o resultado final.
 
 </details>
 
-
 <details>
 <summary><b>Ferramentas e Tecnologia</b></summary>
-
 
 
 **BigQuery:** O BigQuery é um serviço de armazenamento e análise de dados na nuvem fornecido pelo Google Cloud Platform. Ele oferece capacidade escalável para armazenar grandes volumes de dados e realizar consultas SQL de forma rápida e eficiente. No contexto deste projeto, o BigQuery foi utilizado para importar as bases de dados, limpar e tratar os dados iniciais, realizar manipulações e alterações os tipos de dados, além de criar variáveis adicionais conforme necessário.
