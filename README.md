@@ -128,7 +128,9 @@ As visualizações foram realizadas para destacar padrões e tendências nos dad
 
 <details>
 <summary><b>  💡 Conclusões e Recomendações </b></summary>
+
 Após a análise, destaquei alguns pontos relevantes que podem trazer um retorno significativo para a empresa:
+
 
 **Tendência de compra:** observando a série histórica o número de transações de 22.121 online e física identifiquei um aumento no intervalo do 2 º semestre de 2021 até o 1º semestre de 2022. Isso pode indicar uma mudança no comportamento dos clientes ou uma sazonalidade.
 
