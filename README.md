@@ -16,7 +16,7 @@ Segmentação de Clientes
 O objetivo deste projeto é realizar uma análise abrangente de segmentação de clientes, utilizando métricas essenciais como RFM (Recency, Frequency, Monetary) e análise de coorte. Através desta análise, busquei entender mais profundamente o comportamento dos  clientes, identificando padrões de compra, preferências e tendências. Esses insights são fundamentais para adaptar estratégias de marketing de forma precisa e eficaz, permitindo direcionar melhorias específicas para grupos de clientes de acordo com suas necessidades e características distintas.
 
 Este projeto reveste-se de uma importância crucial para a loja o Mercado, especializada em produtos alimentícios importados, que enfrenta desafios constantes na compreensão das preferências mutáveis de seus clientes. A necessidade de fidelizar esses clientes é premente, e para superar esse desafio, a empresa busca identificar onde investir seus esforços. Portanto, esta análise é de grande relevância para orientar as estratégias de negócio e impulsionar o sucesso da empresa no mercado competitivo de alimentos importados.
-
+</details>
 
 <details>
 <summary><b>Equipe</b></summary>
