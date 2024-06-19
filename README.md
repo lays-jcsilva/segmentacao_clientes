@@ -28,14 +28,15 @@ Trabalhei de forma independente neste projeto, assumindo todas as responsabilida
 <details>
 <summary><b>Ferramentas e Tecnologia</b></summary>
 
+Durante o desenvolvimento deste projeto, foram utilizadasferramentas e tecnologias para coleta, análise e visualização de dados. Algumas das principais incluem:
 
-**BigQuery:** O BigQuery é um serviço de armazenamento e análise de dados na nuvem fornecido pelo Google Cloud Platform. Ele oferece capacidade escalável para armazenar grandes volumes de dados e realizar consultas SQL de forma rápida e eficiente. No contexto deste projeto, o BigQuery foi utilizado para importar as bases de dados, limpar e tratar os dados iniciais, realizar manipulações e alterações os tipos de dados, além de criar variáveis adicionais conforme necessário.
+**Planilhas Eletrônicas (Spreadsheets):**
 
-**Google Colab:** Uma plataforma de desenvolvimento baseada em nuvem, foram conduzidos os testes de significância estatística. Esta ferramenta permite escrever e executar código Python de forma colaborativa e eficiente, aproveitando recursos computacionais como GPU e TPU. Os testes de significância foram realizados para avaliar a validade estatística das hipóteses levantadas durante a análise de dados. O ambiente interativo do Google Colab proporcionou uma experiência flexível e acessível para conduzir esses testes, permitindo uma análise robusta dos resultados.
+- Utilizei planilhas eletrônicas para importar, limpar e tratar os dados iniciais, realizar cálculos de métricas e manipulações além de criar variáveis, aplicar fórmulas e criar tabelas dinâmicas para análises de criação de gráficos e dashboard interativo através do filtro de segmentação.
 
-**Python:** Uma linguagem de programação versátil e poderosa, foi empregado neste projeto para conduzir uma análise de regressão linear. Além disso, Python foi utilizado para criar gráficos de dispersão.
+**Looker Studio:**
 
-**Power BI:** Uma ferramenta de visualização de dados da Microsoft, desempenhou um papel fundamental neste projeto ao criar um dashboard abrangente e informativo. Este dashboard integrava diversos dados da base de dados, proporcionando uma visão holística e detalhada do cenário da indústria musical em 2023.A capacidade de conectar e consolidar dados de diferentes fontes, a ampla variedade de opções de visualização e a facilidade de compartilhamento foram aspectos essenciais que contribuíram para a criação de um painel.
+- O Looker Studio foi a principal ferramenta de visualização e análise de dados utilizada neste projeto. Através do Looker, criei dashboards interativos e personalizados que permitiram explorar os dados de forma dinâmica e extrair insights valiosos para apresentação dos resultados das análises realizadas.
 
 
 </details>
