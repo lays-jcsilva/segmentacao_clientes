@@ -49,66 +49,51 @@ Durante o desenvolvimento deste projeto, foram utilizadasferramentas e tecnologi
 <details>
 <summary><b>Obtenção de dados</b></summary>
   
-Os dados foram obtidos através arquivos CVS nomeados como "track_in_spotify", "track_in_competition" e "track,technical_info".
-
-
-**Importação da base de dados**
-
-A primeira fase deste projeto consistiu na importação das bases de dados para o ambiente do BigQuery no Google Cloud. Dentro da opção "BigQuery", foi criada uma pasta denominada "projeto-2-hipoteses". Para isso, foram importadas as tabelas diretamente através do upload de arquivos, adicionando os três arquivos CSV correspondentes a  "track_in_spotify", "track_in_competition" e "track_technical_info" dentro de uma subpasta denominada "dados_spotify". Essa abordagem permitiu uma organização estruturada e acessível dos dados, facilitando sua manipulação e análise subsequentes.
-
-* Descrição das tabelas:
-
-**track_in_spotify:** A tabela "track_in_spotify" contém informações sobre as músicas disponíveis no Spotify. Ela inclui o identificador exclusivo da música (track_id), o nome da música (track_name), o nome do(s) artista(s) (artist(s)_name), o número de artistas que contribuíram na música (artist_count), o ano, mês e dia em que a música foi lançada (released_year, released_month, released_day), o número de listas de reprodução do Spotify em que a música está incluída (in_spotify_playlists), a presença e posição da música nas paradas do Spotify (in_spotify_charts) e o número total de streams, representando o número de vezes que a música foi ouvida pelos usuários do Spotify (streams). Essa tabela fornece uma visão abrangente das características e do desempenho das músicas na plataforma de streaming.
-
-**track_in_competition:** A tabela "track_in_competition" oferece insights sobre a competição das músicas em outras plataformas de streaming, além do Spotify. Ela inclui o identificador exclusivo da música (track_id) e informações sobre sua presença e desempenho em serviços como Apple Music, Deezer e Shazam. Para cada plataforma, são registrados o número de listas de reprodução em que a música está incluída (in_apple_playlists, in_deezer_playlists), bem como sua posição e classificação nas respectivas paradas de sucesso (in_apple_charts, in_deezer_charts, in_shazam_charts). Essa tabela permite uma análise comparativa do desempenho das músicas em diferentes plataformas de streaming, fornecendo uma visão abrangente da sua popularidade e alcance entre os usuários.
-
-**track_technical_info:** A tabela "track_technical_info" contém informações técnicas detalhadas sobre as músicas. Ela inclui o identificador exclusivo da música (track_id) e uma série de métricas que descrevem características musicais específicas. Estas métricas incluem o número de batidas por minuto (bpm), indicando o ritmo da música, a porcentagem de danceability, que representa o quão adequada a música é para dançar, o valence, indicando a positividade do conteúdo musical, a energia (energy) percebida da música, a acústica(acusticness), representando a quantidade de som acústico presente, a instrumentabilidade (instrumentality_),  indicando a quantidade de conteúdo instrumental, a porcentagem de liveness, que reflete a presença de elementos de performance ao vivo, e a speechiness, que representa a quantidade de palavras faladas na música. Essas informações fornecem uma compreensão detalhada das características musicais de cada faixa, possibilitando análises mais profundas sobre seu estilo, apelo emocional e potencial de engajamento com o público.
+Os dados dos clientes foram obtidos, através do google planilhas, realizei uma cópia e depois importei todos os dados para uma planilha onde seria feita a análise visando não apagar ou danificar a base de dados origem
+Importei os dados para uma nova planilha de forma automatizada através da fórmula IMPORTRANGE, trouxe as 3 planilhas sendo: clientes, transacoes, e resumo compras inseri cada uma em abas diferentes para realizar o tratamento na base de dados.
 
 </details>
 
 <details>
 <summary><b> Limpeza dos dados</b></summary>
 
-**Dados Nulos:**
-Para identificar e tratar valores nulos no BigQuery, foram empregados comandos SQL, incluindo SELECT, FROM, WHERE e IS NULL, para localizar os valores nulos dentro de cada uma das variáveis das tabelas. Durante a análise, constatou-se a presença de 50 valores nulos na variável "in_shazam_charts" e 95 valores nulos na variável "key". Para abordar os valores nulos na variável "in_shazam_charts", optou-se por utilizar o valor da mediana para preenchê-los, uma vez que esse método resultou em uma variação mínima na média dos dados. Essa estratégia de tratamento foi escolhida para preservar a integridade e a representatividade dos dados, garantindo a qualidade da análise subsequente.
+Antes da análise, os dados passaram por um processo de limpeza para lidar com inconsistências, erros e valores ausentes, isso incluiu:
 
-**Dados Duplicados:**
-Para identificar e tratar valores duplicados no BigQuery, foram utilizados os comandos SQL COUNT, GROUP BY e HAVING. Durante a análise, foram identificados 10 valores duplicados para a variável "track_name". Para lidar com essa duplicidade, foram removidos 5 valores duplicados, garantindo a integridade e a consistência dos dados. Essa abordagem foi adotada para assegurar a precisão e a confiabilidade da análise subsequente, evitando distorções nos resultados devido a entradas duplicadas.
+- **Remoção de registros duplicados**:  Identifiquei 9 valores duplicados na tabela resumo_compra**s** na coluna id_cliente, através da formatação condicional,  retirei os valores duplicados com a fórmula ARRAY E UNIQUE
+- **Tratamento de valores ausentes (nulos):**  Para tratar valores ausentes na tabela de clientes, identifiquei 24 compradores sem informação de salário. Optei por preencher esses campos com a mediana dos salários existentes, a fim de manter a consistência na base de dados e evitar distorções na distribuição dos dados. Essa abordagem foi escolhida para garantir que a falta de informação não prejudicasse a análise futura, especialmente ao criar gráficos, onde a presença de valores ausentes poderia distorcer a representação visual dos dados. Para realizar esse tratamento, utilizei fórmulas como "contar vazio", "mediana" e "SE", combinadas com a função "colar valores", aplicando a mediana nos campos vazios e garantindo a integridade dos dados de salário.
+
+Ao identificar na tabela de transações a presença de 7 compradores sem IDs, utilizei a função "contar vazio" para verificá-los. Neste contexto, decidi excluir esses registros, uma vez que não contribuiriam para o propósito da análise em questão. A exclusão desses registros sem IDs foi uma medida adotada para garantir a integridade e a precisão dos dados utilizados na análise das transações.
+- **Inconsistências:** Identifiquei na base de dados a presença de 10 usuários que possuíam cadastro, mas não tinham registros de compras, o que foi considerado um outlier para o propósito da análise em questão. Optei por remover esses usuários das tabelas de resumo de compras e clientes, como uma medida para eliminar essa inconsistência e manter a integridade dos dados utilizados na análise. Essa abordagem foi considerada válida para corrigir o problema, uma vez que preservou a qualidade dos dados sem comprometer a análise. No entanto, esses clientes foram mantidos em uma base separada e não tratada, caso fossem necessários para referência futura. Os IDs dos clientes excluídos foram: 5376, 8475, 5555, 3955, 10749, 6862, 11110, 4931, 9931 e 11181. Essa ação foi realizada apenas na tabela de análise em que estava trabalhando, sem afetar a fonte original de dados.
+
+Na base de clientes, identifiquei a presença de 3 clientes com idades de 122, 123 e 129 anos, valores consideravelmente elevados. Embora essas idades possam parecer improváveis, optei por mantê-las na análise. A decisão de reter esses registros se deve ao fato de que, apesar das idades incomuns, todas as outras informações desses clientes estão disponíveis e eles possuem histórico de compras, o que os torna relevantes para a análise. Além disso, considerei a possibilidade de que essas idades incomuns pudessem ser resultado de erros de preenchimento ou entrada de dados. No entanto, a idade em si não é um fator crítico que impactaria negativamente na análise em questão. Portanto, decidi manter esses registros para preservar a integridade e completude dos dados, garantindo que todas as informações relevantes fossem consideradas durante a análise.
+
+Para unir as tabelas, utilizei as funções QUERY e PROCV para consolidar todas as informações em uma única tabela. Através da função QUERY, selecionei os dados relevantes de todas as tabelas e os organizei conforme necessário. Em seguida, utilizei a função PROCV para buscar informações adicionais de outras tabelas com base em chaves de identificação comuns, garantindo a integridade e a precisão dos dados consolidados. Essa abordagem permitiu criar uma visão unificada e coesa de todos os dados, facilitando a análise e a obtenção de insights significativos.
+
+- **Criei tabelas dinâmicas para resumir dados em variáveis categóricas -** criei tabelas dinâmicas para condensar informações em variáveis categóricas relevantes, abrangendo aspectos como por exemplo nível de escolaridade predominante, estado civil, renda média anual dos clientes, número médio de filhos, média salarial por nível de educação e valor gasto por categoria, entre outros aspectos significativos. Essa abordagem permite uma análise mais precisa e acessível dos dados, proporcionando insights essenciais para tomadas de decisão estratégicas.
+
 </details>
 
 <details>
 <summary><b> Transformação dos dados</b></summary>
 
-**Dados fora do escopo da análise e discrepantes:**
-Através de comandos SQL, como SELECT EXCEPT, foi decidido remover as variáveis "key" (tom musical da música) e "mode" (modo de música -maior ou menor), pois foram consideradas irrelevantes para o propósito da análise. Em relação aos dados discrepantes, foi utilizado o comando REGEXP REPLACE para manipulação de strings, corrigindo caracteres nas variáveis "track_name" e "artist_s__name". Para identificar discrepâncias em variáveis numéricas, como "streams", originalmente armazenada como string, empregaram-se os comandos MAX, MIN e AVG. Essa abordagem permitiu a identificação e correção de valores discrepantes, garantindo a qualidade e a confiabilidade dos dados.
+Após a limpeza inicial, os dados foram transformados para realizar a  análise de segmentação de clientes. Isso pode incluir:
 
+- **Tabelas dinâmicas e gráficos:** Na aba "Tabela Resumo", incluí tabelas dinâmicas que sintetizam as respostas às perguntas feitas sobre o perfil dos clientes. Além disso, criei gráficos para visualizar de forma clara e acessível informações como o nível de escolaridade predominante, estado civil, renda média anual dos clientes, número médio de filhos e média salarial por nível de educação, entre outros. Essas tabelas e gráficos proporcionam uma compreensão abrangente do perfil demográfico dos clientes, facilitando a identificação de padrões e tendências importantes para a estratégia de negócios.
+- **Quartil:** Calculei os quartis para segmentar os clientes em grupos com base nas métricas RFM (Recency, Frequency, Monetary).ara isso, criei uma tabela auxiliar com a coluna "Posição Quartil", numerada de 1 a 4, e utilizei a fórmula do quartil para calcular a posição RFM. Esse processo gerou um número limite no intervalo de valores, que pude utilizar como pontuação para definir as classificações posteriormente. Essa abordagem possibilitou uma segmentação mais precisa dos clientes, permitindo uma análise mais detalhada de seus comportamentos e necessidades.
+- **Cálculo das métricas RFM (Recency, Frequency, Monetary):** No cálculo das métricas RFM (Recency, Frequency, Monetary) para cada cliente, levei em consideração suas transações  passadas e calculei individualmente cada valor conforme descrito abaixo:
 
-**Conversão do tipo de dados da variável 'streams':**
-A variável "streams", que originalmente estava no formato de string, foi convertida para um formato numérico utilizando o comando SAFE_CAST. Essa conversão permite que os dados sejam tratados e analisados de forma mais eficiente, possibilitando a realização de cálculos e análises estatísticas relevantes,proporcionando uma compreensão mais precisa do número total de streams de cada música no Spotify.
+**Recência (R):** Determinei a recência com base na data da última transação do cliente em relação ao último dia de compra registrado na base de dados. Como a base de dados se estendia até 31/12/2022 e alguns clientes haviam realizado compras até o último dia disponível, utilizei a data fictícia de 01/01/2023 na fórmula. Essa abordagem garantiu que os clientes não fossem penalizados com uma recência excessiva devido à falta de registros mais recentes além do último dia da base de dados.
 
+**Frequência (F):** No cálculo da frequência, utilizei a contagem de transações por cliente, utilizando a fórmula "Contar Se", a fim de determinar quantas compras cada cliente realizou desde sua data de cadastro. Essa abordagem proporcionou uma medida da frequência de compras de cada cliente ao longo do tempo, permitindo uma avaliação clara de seu engajamento e atividade dentro do período de análise.
 
-**Criação de novas variáveis:** 
-Através dos comandos CONCAT, CAST e JOIN, foram criadas as seguintes variáveis:
+**Monetário (M):** utilizei o total de compras de cada cliente para determinar quanto ele já gastou na empresa. Essa abordagem proporcionou uma medida direta do valor monetário que cada cliente contribuiu para o negócio, permitindo uma análise detalhada do seu comportamento de compra e do seu impacto financeiro.
 
+Além disso, criei uma métrica de média entre frequência e monetário, considerando que essas duas métricas estão correlacionadas. Essa média proporcionou uma perspectiva mais abrangente sobre o comportamento dos clientes, permitindo uma análise mais detalhada sobre como essas métricas se relacionam e como influenciam o desempenho geral do cliente.
 
-* "release_date_concat": Esta variável foi criada com o propósito de combinar três variáveis: *"released_year", "released_month" e "released_day", formando uma única data que representa o ano, mês e dia de lançamento de uma música.
-
-* "soma_playlists": Esta variável representa a soma de uma música em playlists do Spotify, Deezer e Apple, sendo criada através da concatenação das variáveis "in_spotify_playlists", "in_apple_playlists" e "in_deezer_playlists".
-
-Obs: Não consideramos o Shazam, pois se trata de um aplicativo que identifica o nome da música que está tocando no ambiente, ele é útil para quem não conhece ou se esqueceu do nome da canção reproduzida.
-
-* "count_music_artosolo": Esta variável foi criada para representar a quantidade de músicas por artista solo. Para sua criação, foram utilizados os comandos SQL WITH, COUNT e GROUP BY.
-
-Essas variáveis foram criadas utilizando uma combinação de funções e comandos SQL para agregar e manipular os dados de forma significativa, proporcionando insights valiosos para análises posteriores.
-
-
-**Consolidação dos dados:**
-Ao término do processo, foi realizada a integração das tabelas 'track_in_competition', 'track_in_spotify' e 'track_technical_info' por meio dos comandos CREATE TABLE, LEFT JOIN e JOIN, resultando na criação da tabela 'dados_spotify_final'."
 
 </details>
 
 </details>
-
 
 <details>
 <summary><b> Análise Exploratória dos dados </b></summary>
