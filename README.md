@@ -13,15 +13,10 @@ Segmentação de Clientes
 <details>
 <summary><b>Objetivo</b></summary>
   
-O objetivo principal deste projeto foi aplicar testes estatísticos, como correlação, teste de significância e regressão linear, para validar ou refutar hipóteses relevantes. Essas análises visam fornecer descobertas valiosas para uma gravadora que busca entender o contexto da indústria musical para lançar um novo artista
+O objetivo deste projeto é realizar uma análise abrangente de segmentação de clientes, utilizando métricas essenciais como RFM (Recency, Frequency, Monetary) e análise de coorte. Através desta análise, busquei entender mais profundamente o comportamento dos  clientes, identificando padrões de compra, preferências e tendências. Esses insights são fundamentais para adaptar estratégias de marketing de forma precisa e eficaz, permitindo direcionar melhorias específicas para grupos de clientes de acordo com suas necessidades e características distintas.
 
-**Contexto**
+Este projeto reveste-se de uma importância crucial para a loja o Mercado, especializada em produtos alimentícios importados, que enfrenta desafios constantes na compreensão das preferências mutáveis de seus clientes. A necessidade de fidelizar esses clientes é premente, e para superar esse desafio, a empresa busca identificar onde investir seus esforços. Portanto, esta análise é de grande relevância para orientar as estratégias de negócio e impulsionar o sucesso da empresa no mercado competitivo de alimentos importados.
 
-
-A indústria musical faz parte de um ambiente que está em constante evolução e é altamente competitivo, a capacidade de tomar decisões baseadas em dados tornou-se um ativo valioso.
-
-Nesse cenário desafiador uma gravadora se depara com o desafio de lançar um novo artista em nível musical global , a gravadora possuí uma ferramenta poderosa que são os conjuntos de dados do spotify, repleto de insights valiosos sobre as músicas que dominaram as paradas em 2023.
-</details>
 
 
 <details>
@@ -29,7 +24,7 @@ Nesse cenário desafiador uma gravadora se depara com o desafio de lançar um no
 
 
 
-  Lays Silva e Nicole Machado Corrêa
+Trabalhei de forma independente neste projeto, assumindo todas as responsabilidades, desde o planejamento até a execução e análise dos resultados. Apesar de ser um projeto individual, busquei feedback de colegas e auxílio quando necessário, priorizando a entrega de qualidade. Mesmo atuando sozinha, reconheço a importância da aprendizagem colaborativa e valorizo as contribuições de outras colegas ao buscar insights e perspectivas externas e diferentes. A capacidade de gerenciar todas as etapas do projeto de forma independente me proporcionou um valioso aprendizado e desenvolvimento de habilidades em diversas áreas, desde análise de dados até comunicação eficaz, ao mesmo tempo em que pude perceber a importância da colaboração para enriquecer o resultado final.
 
 </details>
 
