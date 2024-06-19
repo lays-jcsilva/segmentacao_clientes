@@ -168,7 +168,7 @@ Essa análise ressalta a importância de investir em estratégias voltadas para 
 
 </details>
 
-<details>
+
 
 </details>
 
