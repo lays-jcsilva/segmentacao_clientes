@@ -179,6 +179,6 @@ Essa análise ressalta a importância de investir em estratégias voltadas para 
 
 **Banco de dados:**  https://docs.google.com/spreadsheets/d/1r9GAy-2B8o06p4JHbUGv8DrOZKAPpgPwap0rBCR6yk8/edit?gid=1287610346#gid=1287610346
 
-**Dashboard:** https://lookerstudio.google.com/u/1/reporting/6bb0e098-6fa4-46e3-b3bb-abd463a90ec7/page/wD3uD
+**Dashboard:** https://lookerstudio.google.com/u/1/reporting/8dec447c-d156-4788-ace0-5add677e8640/page/wD3uD/edit
 
 </details>
